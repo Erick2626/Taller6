@@ -1,4 +1,4 @@
-import json
+﻿import json
 from typing import Any
 
 import numpy as np
@@ -14,7 +14,7 @@ from app.config import settings
 
 api_router = APIRouter()
 
-# Ruta para verificar que la API se esté ejecutando correctamente
+# Ruta para verificar que la API se estÃ© ejecutando correctamente
 @api_router.get("/health", response_model=schemas.Health, status_code=200)
 def health() -> dict:
     """
@@ -24,7 +24,7 @@ def health() -> dict:
         name=settings.PROJECT_NAME, api_version=__version__, model_version=model_version
     )
 
-    return health.model_dump()
+    return health.dict()
 
 # Ruta para realizar las predicciones
 @api_router.post("/predict", response_model=schemas.PredictionResults, status_code=200)
